@@ -1,0 +1,584 @@
+        
+		body{
+        	xbackground-color: rgba(0,0,0,0.08);
+        	overflow-y: scroll;/*让小米商城对齐*/
+        	margin:0;
+        	font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+        }
+        a{
+        	text-decoration: none;
+        }
+        ul,ol{
+        	list-style: none;
+        	padding: 0;
+        	margin: 0;
+        }
+        h2{
+        	font-weight: lighter;
+
+        }
+	/*顶部条*/
+		.top-bar{	
+			height: 40px;
+			background-color: #333;
+			color: #b0b0b0;
+		}
+		.top-bar-wrap{
+			height: 40px;
+			width: 1226px;
+			margin: 0 auto;
+		}
+		.top-nav{
+			height: 40px;
+			font-size: 0;
+			float: left;
+ 		}
+		.top-nav a,.shopping-car a,.login-info a{
+			color: #b0b0b0;
+			font-size: 12px;
+			line-height: 40px;
+			display: inline-block;
+
+		}
+		.top-nav span,.login-info span{
+			margin: 0.5em;
+			color: #424242;
+			font-size: 12px;
+			line-height: 40px;
+		}
+		.top-nav a:hover,.login-info a:hover{
+			color: white;
+		}
+		.shopping-info,.shopping-car{
+			float: right;
+			height: 40px;
+			width: 120px;
+			margin-left: 15px;
+			position: relative;
+		}
+        .shopping-car a{
+        	display: block;
+        	background-color: #424242;
+        	text-align: center;
+        	height: 40px;
+        	position: relative;
+        	z-index: 4;
+
+        }
+        
+        @font-face{
+			font-family:'fontawesome';
+			src:url(./font-awesome-4.7.0/fonts/fontawesome-webfont.woff2);
+			src:url(./font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?#iefix);
+		}
+		.fa{
+			font-family: 'fontawesome';
+			font-style: normal;
+			display: inline-block;
+		}
+		.fa-shopping-cart::before{
+			content: "\f07a";
+		}/*字体图标*/
+		.downlist{
+			position: absolute;
+			width: 312px;
+			height: 98px ;
+			xopacity: 0;
+			bottom: 0;
+			right: 0;
+			transition:  0.2s 0.1s ease-in;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.2);	
+			z-index: -1;
+			
+		}
+		.downlist p{
+			position: absolute;/*块级元素定位居中*/
+			top: 50%;
+			left: 50%;
+			height: 18px;
+			width: 180px;
+			margin-left: -90px;
+			margin-top: -9px;
+			white-space: nowrap;
+			font-size: 12px;
+			color: #424242;
+					}
+		.shopping-car a:hover *{
+			color: #ff6700;
+		}
+		.shopping-car a:hover {
+			background-color: white;
+		}
+		/*.shopping-info:hover .shopping-car a{
+			background-color: white;
+		}*/
+		.shopping-info a:hover +.downlist{
+            xopacity: 1;
+            height: 98px;
+			bottom: -98px;
+			
+			background-color: #fff;
+			z-index: 3;
+		}/*为什么hover时会闪动？？？子元素的z-index在父元素被hover时不能比父元素高*/
+
+
+		.login-info{
+			float: right;
+			padding-right: 10px;
+			position: relative;
+			height: 40px;
+			font-size: 0;
+		}
+
+
+		/*主要导航*/
+		.main-nav{
+			width: 1226px;
+			margin: auto;
+			height: 100px;
+		}
+
+		.main-nav .logo{
+			width: 55px;
+			height: 55px;
+			margin-top: 22px;
+			float: left;
+			margin-right: 179px;
+		}
+
+		.main-nav-menu{
+			float: left;
+			height: 100px;
+			font-size: 16px;
+
+		}
+		.main-nav-menu li{
+			float: left;
+			height: 100px;
+		}
+		.main-nav-menu li a{
+			height: 100px;
+			line-height: 100px;/*行内元素垂直居中*/
+			display: inline-block;
+			padding: 0 10px;
+			color: black;
+		}
+		.main-nav-menu .submenu{
+			background-color: #fff;
+			box-sizing: border-box;
+			height: 0;
+			position: absolute;
+			width: 100%;/*绝对定位的元素宽度具有包裹性*/
+			left: 0;
+			transition: 0.5s 0.2s;
+			overflow: hidden;
+		}
+		.main-nav-menu:hover .submenu{
+			border-top:1px solid black;
+			box-shadow:0 2px 5px rgba(0,0,0,0.1);
+			height: 230px;
+		}
+		.main-nav-menu li:hover .submenu{
+			z-index: 999;
+		}
+		.submenu a {
+			display: block;
+			
+		}
+		.submenu ul{
+			margin-left: 60px;
+		}
+		.submenu img{
+			display: inline-block;
+			height: 120px;
+			padding-top: 35px;
+		}
+
+        /*搜索框*/
+        /*美化表单控件*/
+        .main-search{
+        	float: right;
+        	width: 296px;
+        	margin-top: 25px;
+        }
+        .main-search>form{
+        	position: relative;
+        	width: 296px;
+        	height: 50px;
+        }
+        .main-search .search-text{
+        	position: absolute;
+        	top: 0;
+        	width: 245px;
+        	height: 50px;
+        	box-sizing: border-box;
+        	border: 1px solid #e0e0e0;
+        }
+        .main-search .search-btn{
+        	position: absolute;
+        	width: 52px;
+        	height: 50px;
+        	top: 0;
+        	right: 0;
+        	padding: 1px 6px;
+        	xopacity: 0;
+        	xz-index: 2;
+        	border: 1px solid #e0e0e0;
+        	box-sizing: border-box;
+        	background-color: #fff;
+
+        	
+        }
+        .search-icon{
+        	font-family: "fontawesome";
+        	font-style: normal;
+        	position: absolute;
+        	color: #616161;
+        	font-size: 18px;
+        	right: 19px;
+        	margin-right: -1px;
+        	top: 23px;
+        	margin-top: -10px;
+        	z-index: 2;
+        	display: inline-block;
+        	background-color: #fff;
+        }
+        .search-icon::before{
+            content: "\f002";
+        }
+
+        .main-search>form:hover>input{
+        	border-color: #b0b0b0;
+        }
+        .main-search .search-text:focus+input,.main-search .search-text:focus{
+        	border-color: #ff6700;
+        }
+        .main-search .search-btn:hover,.main-search .search-btn:hover+i{
+        	background-color: #ff6700;
+        }
+
+		/*slider*/
+		.slider-container{
+			position: relative;
+			width: 1226px;
+			height: 460px;
+			margin: auto;
+
+		}
+		.slider{
+			position: relative;
+			height: 460px;
+			width: 1226px;
+		}
+		.slider input{
+			position: relative;
+			xz-index: 1;
+			display: none;
+			top: 480px;
+
+		}
+		.slider>div{
+			position: absolute;
+			opacity: 0;
+			z-index: 5;
+			
+		}
+        .slider>div>label{
+        	position: absolute;
+        	top: 200px;
+        	display: inline-block;
+        	cursor: pointer;
+        	font-size: 40px;
+        	z-index: 8;
+        }
+        .slider>div>.l{
+        	left: 234px;
+        }
+        .slider>div>.r{
+        	right: 0px;
+
+        }
+		.slider img{
+			width: 100%;
+		}
+		.slider section{
+			position: absolute;
+			width: 400px;
+			height: 20px;
+			z-index: 10;
+			right: 16px;
+			bottom: 17px;
+			xbackground-color: yellow;
+			text-align: right;
+			z-index: 11;
+
+		}
+		.slider section label{
+			background-color: red;
+			display: inline-block;/*label为行内元素*/
+			width: 0;
+			height: 0;
+			border: 5px solid red;
+            margin: 5px;
+            cursor: pointer;
+		}
+		.slider input:checked +*+*+*+*+div{
+			z-index: 6;
+			opacity: 1;
+			transition: 1s linear;
+		}
+
+		/*z-index失效原因：没有定位；父元素的层叠优先级比其他元素低*/
+		/*.site-category-container{
+			position: relative;
+			width: 1226px;
+			height: 460px;
+			margin: auto;
+			top: -460px;
+			xbackground-color: pink;
+			z-index: 4;
+
+		}*/
+		/*产品分类目录*/
+		.site-category{
+			position: absolute;
+			width: 234px;
+			height: 460px;
+			top: 0;
+			z-index: 8;
+			background-color: rgba(51,51,51,.7);/*子元素不继承透明度的方法*/
+			
+		}
+		.site-category>ul{
+			position: relative;
+			margin-top: 20px;
+		}
+		.site-category>ul>li{
+			Xposition: relative;
+			height: 42px;
+			padding-left: 30px;
+			line-height: 42px;
+			xvertical-align: center;
+
+		}
+		.site-category>ul>li::before{
+			content: ">";
+			float: right;
+			font-size: 16px;
+			width: 16px;
+			height: 16px;
+			color: #fff;
+			margin-right: 15px;
+
+		}
+		.site-category>ul>li:hover{
+			background-color: #ff6700;
+		}
+		.site-category ul a{
+			color: #fff;
+			display: block;
+		}
+
+		.site-category .sub-menu{
+			xbackground-color: pink;
+			position: absolute;
+			z-index: 1;
+			height: 462px;
+			width: 992px;
+			top: -20px;
+			left: 100%;
+			white-space: nowrap;
+			display: none;
+		}
+
+		.site-category .sub-menu li{
+			background-color: #fff;
+            
+
+		}
+		.site-category .sub-menu li a{
+            display: block;
+            width: 248px;
+			height: 77px;
+			padding: 18px 20px;
+			box-sizing: border-box;
+		}
+		.site-category>ul>li:hover .sub-menu{
+			display: block;
+			z-index: 20;
+            overflow: hidden;
+			column-width: 248px;
+			column-gap: 0;
+			box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+		}
+		.site-category>ul>li:hover li:last-child{
+			padding-bottom: 9999999px;/*?????????/*/
+			xbackground-color: red;
+		}
+	    .sub-menu li img{
+			width: 40px;
+		}
+
+        /*业务导航*/
+        .profession-container{
+        	width: 1226px;
+        	margin:14px auto;
+        	height: 170px;
+        }
+        .profession-container>.productor{
+        	float: right;
+        	font-size: 0;
+        }
+        .profession-container>.productor>img{
+        	margin: 0 7px;
+        }
+        .profession-container>.productor>img:last-child{
+        	margin-right: 0;
+        }
+        .profession-container>.profession{
+        	float: left;
+        }
+        .profession-container>.productor>img{
+        	width: 316px;
+        	height: 170px;
+        }
+        .profession-container>.profession>ul{
+        	width: 234px;
+        	overflow: auto;
+        	padding: 3px 0;/*清除浮动----闭合浮动*/
+        	background-color: #5f5750;
+        }
+		/*float:让文字像流水一样围绕浮动元素
+			1.包裹性==>宽度自适应
+			2.高度欺骗==>外层元素无视内层浮动元素的高度
+		*/
+		.profession-container>.profession>ul>li{
+			position: relative;
+			float: left;
+			width: 70px;
+			height: 82px;
+			padding: 0 3px;
+			text-align: center;
+            
+
+		}
+		.profession-container>.profession>ul>li a::before{
+			content: ".";
+			height: 100%;
+			vertical-align: middle;
+			display: inline-block;
+			visibility: hidden;
+		}/*利用伪元素实现行内块元素垂直居中*/
+        .profession-container>.profession>ul>li a{
+        	color: rgba(255,255,255,.7);
+        	font-size: 12px;
+        	display: inline-block;
+        	text-align: center;
+        	vertical-align: middle;
+
+        }
+		.profession-container>.profession>ul>li i{
+			display: block;
+			height: 24px;
+			line-height: 24px;
+			font-family: "fontawesome" !important;
+			font-style: normal;
+			font-size: 24px;
+
+		}
+
+        .profession-container>.profession>ul>li i::before{
+        	content: "\f015"
+        }
+
+
+/*产品介绍*/
+        .appliance{
+        	width: 1226px;
+        	margin: 28px auto;
+        	background-color: #fff;
+        	overflow: auto;
+        }
+        .appliance .appliance-l{
+        	float: left;
+			width: 234px;
+        }
+        .appliance .appliance-l>h2{
+        	margin: 0px;
+        	line-height: 40px;
+        }
+        .appliance .appliance-l div{
+			width: 100%;
+			font-size: 0;
+
+        }
+
+		.appliance .appliance-l img{
+			width: 100%;
+			margin: 7px 0;
+
+		}
+		.appliance .appliance-r{
+			float: right;
+			width: 992px;
+			position: relative;
+			overflow: auto;
+		}
+		.appliance-r::after{
+			content: "";
+			display: block;
+			width: 992px;
+			height: 668px;
+		}
+		.appliance .appliance-r>span{
+			xfloat: right;
+			display: inline-block;
+
+			height: 47px;
+		}
+		.appliance .appliance-r>div{
+			clear: both;
+			position: absolute;
+			z-index: 0;
+			
+        	transition: visibility 10000000s 10000000s
+
+			xbackground-color: #fff;
+		}
+		.appliance .appliance-r>div>ul{
+			height: 614px;
+		}
+		.appliance .appliance-r>div>ul>li{
+			float: left;
+			width: 234px;
+			height: 246px;
+			margin-left: 14px;
+			margin-bottom: 14px;
+			background-color: #fff;
+			padding: 34px 0 20px;
+			text-align: center;/*父元素定高定宽，行内元素居中*/
+		}
+		.appliance .appliance-r>div>ul>li img{
+			width: 150px;
+			height: 150px;
+		}
+		.appliance .appliance-r>div>ul>.last-second-child,.appliance .appliance-r>div>ul>.last-child{
+			
+			height: 93px;
+		}
+        .appliance .appliance-r>div>ul>li .the-last-child{
+        	height: 80px;
+        	width: 80px;
+        }
+        .appliance .appliance-r>span:hover{
+        	cursor: pointer;
+        }
+
+        .appliance .appliance-r>span:hover+*+*+*+*{
+        	z-index: 3;
+        	visibility: visible;
+        	transition: 0s 0s;
+        }
+
+
+        
